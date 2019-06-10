@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "micro.test",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceRoot}/build/bin/micro.test",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceRoot}",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+        }
+      ]
+    },
+    {
+      "name": "micro.service",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceRoot}/build/bin/micro.service",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceRoot}",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+        }
+      ]
+    },
+  ]
+}

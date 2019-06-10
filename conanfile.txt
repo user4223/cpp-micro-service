@@ -1,0 +1,11 @@
+[requires]
+
+[build_requires]
+cpprestsdk/2.10.10@bincrafters/stable
+gtest/1.8.1@bincrafters/stable
+
+[generators]
+cmake
+
+[options]
+*:shared=False

@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "command": "sh",
+  "args": [
+    "-c"
+  ],
+  "presentation": {
+    "echo": true,
+    "reveal": "always",
+    "focus": false,
+    "panel": "shared",
+    "showReuseMessage": false,
+    "clear": true
+  },
+  "problemMatcher": [
+    "$gcc"
+  ],
+  "options": {
+    "cwd": "${workspaceRoot}/build"
+  },
+  "tasks": [
+    {
+      "label": "clear",
+      "command": "rm",
+      "args": [
+        "-rf",
+        "${workspaceRoot}/build/*"
+      ],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "conan",
+      "command": "conan",
+      "args": [
+        "install",
+        "../"
+      ],
+      "group": "build",
+    },
+    {
+      "label": "cmake",
+      "command": "cmake",
+      "args": [
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "../source"
+      ],
+      "dependsOn": [
+        "conan"
+      ],
+      "group": "build",
+    },
+    {
+      "label": "build",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "."
+      ],
+      "group": "build"
+    },
+    {
+      "label": "ctest",
+      "command": "ctest",
+      "args": [
+        "-V"
+      ],
+      "dependsOn": "build",
+      "group": "build",
+    },
+    {
+      "label": "run",
+      "command": "bin/micro.service",
+      "dependsOn": "ctest",
+      "group": "build",
+    }
+  ]
+}
