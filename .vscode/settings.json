@@ -45,5 +45,14 @@
     "typeinfo": "cpp",
     "utility": "cpp",
     "variant": "cpp",
+    "cctype": "cpp",
+    "clocale": "cpp",
+    "cmath": "cpp",
+    "codecvt": "cpp",
+    "cwchar": "cpp",
+    "cwctype": "cpp",
+    "string_view": "cpp",
+    "new": "cpp",
+    "cinttypes": "cpp",
   }
 }

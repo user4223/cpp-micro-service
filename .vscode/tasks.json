@@ -55,7 +55,12 @@
       "command": "cmake",
       "args": [
         "--build",
-        "."
+        ".",
+        "--",
+        "-j"
+      ],
+      "dependsOn": [
+        "cmake"
       ],
       "group": "build"
     },
@@ -73,6 +78,49 @@
       "command": "bin/micro.service",
       "dependsOn": "ctest",
       "group": "build",
+    },
+    {
+      "label": "docker.build",
+      "command": "docker",
+      "args": [
+        "build",
+        "--tag",
+        "service.example",
+        "."
+      ],
+      "dependsOn": "build",
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceRoot}"
+      }
+    },
+    {
+      "label": "docker.run",
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-it",
+        "-p",
+        "6565",
+        "service.example:latest"
+      ],
+      "dependsOn": "docker.build",
+      "group": "build"
+    },
+    {
+      "label": "compile.this.file.only",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "${workspaceFolder}/source/etc/build.py",
+        "${workspaceFolder}",
+        "${relativeFile}"
+      ],
+      "options": {
+        "cwd": "${workspaceRoot}"
+      },
+      "group": "build"
     }
   ]
 }

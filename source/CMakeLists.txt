@@ -5,7 +5,6 @@ project(micro-service)
 enable_testing()
 
 set(CMAKE_CXX_STANDARD 14)
-#add_definitions(-static -static-libgcc -static-libstdc++)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
