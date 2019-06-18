@@ -18,7 +18,3 @@ deployed often and automatically, so security updates of basic
 libraries are coming in anyway. This is different to monolithic
 architectures, because their updates are critical and not 
 happening that often.
-
-
-
-
