@@ -8,7 +8,8 @@ RUN git checkout .
 WORKDIR /src/build
 COPY source/etc/conan.alpine.profile .
 RUN conan install --profile=./conan.alpine.profile --build=outdated ..
-RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXE_LINKER_FLAGS='-static' ../source
+#RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXE_LINKER_FLAGS='-static' ../source
+RUN cmake -DCMAKE_BUILD_TYPE=Release ../source
 RUN cmake --build . --config Release
 
 #FROM alpine:latest

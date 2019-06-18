@@ -5,7 +5,7 @@ project(micro-service)
 enable_testing()
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_EXE_LINKER_FLAGS "-static")
+#set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
