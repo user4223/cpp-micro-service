@@ -1,13 +1,15 @@
 FROM alpine:latest AS builder
 RUN apk --no-cache add musl-dev cmake make g++ linux-headers python py-pip git
 RUN pip install conan && conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-RUN rm -f /src && mkdir -p /src/build
+RUN mkdir -p /src/build
+COPY conanfile.txt /src/
+COPY source/etc/conan.alpine.profile /src/
+WORKDIR /src/build
+RUN conan install --profile=/src/conan.alpine.profile --build=outdated /src/
+COPY .git /src/.git
 WORKDIR /src
-COPY .git ./.git
 RUN git checkout .
 WORKDIR /src/build
-COPY source/etc/conan.alpine.profile .
-RUN conan install --profile=./conan.alpine.profile --build=outdated ..
 #RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXE_LINKER_FLAGS='-static' ../source
 RUN cmake -DCMAKE_BUILD_TYPE=Release ../source
 RUN cmake --build . --config Release
