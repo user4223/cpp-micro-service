@@ -24,6 +24,8 @@ BraceWrapping:
   SplitEmptyNamespace: false
 
 BreakBeforeTernaryOperators: false
+AlwaysBreakAfterReturnType: All
+AlwaysBreakTemplateDeclarations: true
 BreakConstructorInitializersBeforeComma: true
 AllowShortIfStatementsOnASingleLine: true
 AllowShortLoopsOnASingleLine: true
