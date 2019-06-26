@@ -7,8 +7,9 @@ namespace Common
       : m_routingMap()
   {}
 
-  API::IRouteRegistry& CRouteRegistry::add(std::string endpoint, std::vector<API::Method> methods,
-                                           HandlerFunctionType handler)
+  API::IRouteRegistry&
+  CRouteRegistry::add(std::string endpoint, std::vector<API::Method> methods,
+                      HandlerFunctionType handler)
   {
     for (auto method : methods)
     {
@@ -17,12 +18,14 @@ namespace Common
     return *this;
   }
 
-  std::vector<web::http::methods> CRouteRegistry::getMethods() const
+  std::vector<web::http::methods>
+  CRouteRegistry::getMethods() const
   {
     return std::vector<web::http::methods>();
   }
 
-  CRouteRegistry::EndpointMapType CRouteRegistry::getHandler(API::Method method) const
+  CRouteRegistry::EndpointMapType
+  CRouteRegistry::getHandler(API::Method method) const
   {
     auto const iterator = m_routingMap.find(method);
     return iterator == m_routingMap.end() ? EndpointMapType() : iterator->second;

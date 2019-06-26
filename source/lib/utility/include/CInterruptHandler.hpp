@@ -2,5 +2,6 @@
 
 namespace Utility
 {
-  void awaitInterrupt();
+  void
+  awaitInterrupt();
 } // namespace Utility

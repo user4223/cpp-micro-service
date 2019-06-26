@@ -8,7 +8,8 @@
 static std::condition_variable s_condition;
 static std::mutex s_mutex;
 
-void handler(int type)
+void
+handler(int type)
 {
   if (type == SIGINT)
   {
@@ -30,7 +31,8 @@ private:
 
 namespace Utility
 {
-  void awaitInterrupt()
+  void
+  awaitInterrupt()
   {
     HandlerRAII raii;
 

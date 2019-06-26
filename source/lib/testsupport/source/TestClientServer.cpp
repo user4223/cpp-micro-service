@@ -26,7 +26,8 @@ namespace TestSupport
       , m_client(m_baseUri)
   {}
 
-  web::http::http_response TestClientServer::request(web::uri requestUri)
+  web::http::http_response
+  TestClientServer::request(web::uri requestUri)
   {
     web::http::http_request request(web::http::methods::GET);
     request.set_request_uri(requestUri);

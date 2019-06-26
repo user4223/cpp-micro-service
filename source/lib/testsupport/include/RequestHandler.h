@@ -8,7 +8,8 @@ namespace TestSupport
 {
   namespace RequestHandler
   {
-    auto uriParts(int id)
+    auto
+    uriParts(int id)
     {
       return [=](API::Method method, web::http::http_request request) {
         auto response = web::json::value::object();

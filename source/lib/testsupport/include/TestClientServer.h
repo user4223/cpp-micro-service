@@ -17,7 +17,8 @@ namespace TestSupport
   public:
     TestClientServer(std::unique_ptr<API::IRouteRegistry> registry);
 
-    web::http::http_response request(web::uri requestUri);
+    web::http::http_response
+    request(web::uri requestUri);
 
   private:
     web::uri m_baseUri;

@@ -15,12 +15,15 @@ namespace Common
   public:
     CRouteRegistry();
 
-    virtual IRouteRegistry& add(std::string endpoint, std::vector<API::Method> methods,
-                                HandlerFunctionType handler) override;
+    virtual IRouteRegistry&
+    add(std::string endpoint, std::vector<API::Method> methods,
+        HandlerFunctionType handler) override;
 
-    virtual std::vector<web::http::methods> getMethods() const override;
+    virtual std::vector<web::http::methods>
+    getMethods() const override;
 
-    virtual EndpointMapType getHandler(API::Method method) const override;
+    virtual EndpointMapType
+    getHandler(API::Method method) const override;
 
   private:
     RoutingMapType m_routingMap;

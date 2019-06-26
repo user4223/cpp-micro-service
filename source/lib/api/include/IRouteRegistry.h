@@ -17,11 +17,13 @@ namespace API
 
     virtual ~IRouteRegistry() = default;
 
-    virtual IRouteRegistry& add(std::string endpoint, std::vector<Method> methods,
-                                HandlerFunctionType handler) = 0;
+    virtual IRouteRegistry&
+    add(std::string endpoint, std::vector<Method> methods, HandlerFunctionType handler) = 0;
 
-    virtual std::vector<web::http::methods> getMethods() const = 0;
+    virtual std::vector<web::http::methods>
+    getMethods() const = 0;
 
-    virtual EndpointMapType getHandler(Method method) const = 0;
+    virtual EndpointMapType
+    getHandler(Method method) const = 0;
   };
 } // namespace API
