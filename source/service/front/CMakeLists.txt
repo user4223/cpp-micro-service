@@ -1,4 +1,4 @@
-project(micro.service)
+project(service.front)
 
 aux_source_directory(source PROJECT_SOURCE)
 file(GLOB PROJECT_INCLUDES "include/*.h")

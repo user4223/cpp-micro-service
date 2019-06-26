@@ -10,7 +10,7 @@ RUN conan install --build=missing /src/
 RUN cmake -DCMAKE_BUILD_TYPE=Release ../source
 RUN cmake --build . --config Release
 
-FROM ubuntu:18.04 AS runner 
-COPY --from=builder /src/build/bin/micro.service /bin/
-EXPOSE 6565
-CMD ["/bin/micro.service"]
+FROM ubuntu:18.04 AS front 
+COPY --from=builder /src/build/bin/service.front /bin/
+EXPOSE 6565/tcp
+CMD ["/bin/service.front"]

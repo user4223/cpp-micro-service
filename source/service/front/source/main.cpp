@@ -1,4 +1,3 @@
-
 #include "lib/common/include/CRouteRegistry.h"
 #include "lib/common/include/CRouter.h"
 #include "lib/utility/include/CInterruptHandler.hpp"
@@ -16,7 +15,8 @@ static const auto carEngineMap = []() {
   return m;
 }();
 
-int main(int argc, const char* argv[])
+int
+main(int argc, const char* argv[])
 {
   crossplat::threadpool::initialize_with_threads(
       1); ///< Just avoid 40 threads created by http::listener by default

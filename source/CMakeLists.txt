@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(micro-service)
+project(micro)
 
 enable_testing()
 
@@ -13,4 +13,4 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(TARGETS)
 
 add_subdirectory(lib)
-add_subdirectory(service)
+add_subdirectory(service/front)

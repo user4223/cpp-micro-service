@@ -85,8 +85,9 @@
       "command": "docker",
       "args": [
         "build",
+        //"--no-cache",
         "--tag",
-        "service.example",
+        "service.front",
         "."
       ],
       //"dependsOn": "build",
@@ -101,10 +102,9 @@
       "args": [
         "run",
         "--rm",
-        "-it",
         "-p",
-        "6565",
-        "service.example:latest"
+        "6565:6565",
+        "service.front:latest"
       ],
       "dependsOn": "docker.build",
       "group": "build"
