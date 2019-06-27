@@ -7,7 +7,7 @@
 #include <map>
 #include <memory>
 
-static const auto carEngineMap = []() {
+static const auto carEngineMap = []() { ///< TODO Move out to persistence service
   std::map<std::string, std::string> m;
   m.insert(std::make_pair("delorean", "flux capacitor"));
   m.insert(std::make_pair("prius", "hybrid"));
@@ -16,7 +16,7 @@ static const auto carEngineMap = []() {
 }();
 
 int
-main(int argc, const char* argv[])
+main(int argc, char const** argv)
 {
   crossplat::threadpool::initialize_with_threads(
       1); ///< Just avoid 40 threads created by http::listener by default

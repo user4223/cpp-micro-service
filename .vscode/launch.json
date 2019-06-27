@@ -19,10 +19,10 @@
       ]
     },
     {
-      "name": "micro.service",
+      "name": "service.front",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceRoot}/build/bin/micro.service",
+      "program": "${workspaceRoot}/build/bin/service.front",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceRoot}",
