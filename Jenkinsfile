@@ -7,7 +7,7 @@ pipeline {
         checkout scm
         sh '''mkdir -p build
               cd build
-              conan install ..
+              conan install --build=missing ..
               cmake -DCMAKE_BUILD_TYPE=Release ../source 
               cmake --build .
            '''
