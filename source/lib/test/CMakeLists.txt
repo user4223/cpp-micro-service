@@ -11,5 +11,4 @@ target_link_libraries(${PROJECT_NAME}
 	CONAN_PKG::gtest
 )
 
-add_test(NAME micro.test COMMAND micro.test)
-
+add_test(NAME micro.test COMMAND micro.test --gtest_output=xml:micro.test.result.xml)

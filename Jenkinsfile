@@ -9,7 +9,7 @@ pipeline {
               cd build
               conan install --build=missing ..
               cmake -DCMAKE_BUILD_TYPE=Release ../source 
-              cmake --build .
+              cmake --build . -- -j
            '''
       }
     }
@@ -19,6 +19,12 @@ pipeline {
         sh '''cd build
               ctest -V
            '''
+        xunit([GoogleTest(
+           deleteOutputFiles: true
+          ,failIfNotNew: true
+          ,pattern: '*test.result.xml'
+          ,skipNoTestFiles: false
+          ,stopProcessingIfError: true)])
       }
     }
     stage('Docker.Build') {
