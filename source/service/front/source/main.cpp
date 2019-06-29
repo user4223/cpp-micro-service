@@ -22,18 +22,23 @@ main(int argc, char const** argv)
       1); ///< Just avoid 40 threads created by http::listener by default
 
   auto handler = std::make_unique<Common::CRouteRegistry>();
-  handler->add(
-      "/car/.*", {API::Method::Get}, [](API::Method method, web::http::http_request request) {
-        const auto parts = web::uri::split_path(web::uri::decode(request.relative_uri().path()));
-        if (parts.size() < 2) return request.reply(web::http::status_codes::NotFound);
+  handler->add("/car/.*", {API::Method::Get},
+               [](API::Method method, web::http::http_request request) {
+                 const auto path = web::uri::decode(request.relative_uri().path());
 
-        const auto engine = carEngineMap.find(parts[1]);
-        if (engine == carEngineMap.end()) return request.reply(web::http::status_codes::NotFound);
+                 std::cout << "Got request on: " << path << std::endl;
 
-        auto response = web::json::value::object();
-        response["engine"] = web::json::value(engine->second);
-        request.reply(web::http::status_codes::OK, response);
-      });
+                 const auto parts = web::uri::split_path(path);
+                 if (parts.size() < 2) return request.reply(web::http::status_codes::NotFound);
+
+                 const auto engine = carEngineMap.find(parts[1]);
+                 if (engine == carEngineMap.end())
+                   return request.reply(web::http::status_codes::NotFound);
+
+                 auto response = web::json::value::object();
+                 response["engine"] = web::json::value(engine->second);
+                 request.reply(web::http::status_codes::OK, response);
+               });
 
   const auto uri = web::uri("http://localhost:6565/v1.0");
   auto router = std::make_unique<Common::CRouter>(uri, *handler);
