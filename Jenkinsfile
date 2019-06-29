@@ -22,7 +22,7 @@ pipeline {
         xunit([GoogleTest(
            deleteOutputFiles: true
           ,failIfNotNew: true
-          ,pattern: '*test.result.xml'
+          ,pattern: '**/*.test.result.xml'
           ,skipNoTestFiles: false
           ,stopProcessingIfError: true)])
       }
