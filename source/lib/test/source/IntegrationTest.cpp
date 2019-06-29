@@ -9,7 +9,7 @@
 using web::http::status_codes;
 using web::json::value;
 
-TEST(PathMatch, Integration)
+TEST(Integration, PathMatch)
 {
   auto registry = std::make_unique<Common::CRouteRegistry>();
   (*registry)
@@ -26,7 +26,7 @@ TEST(PathMatch, Integration)
   EXPECT_EQ(json.at("id").as_integer(), 23);
 }
 
-TEST(NoMatch, Integration)
+TEST(Integration, NoMatch)
 {
   auto registry = std::make_unique<Common::CRouteRegistry>();
   (*registry)
