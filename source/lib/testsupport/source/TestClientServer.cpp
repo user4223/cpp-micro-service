@@ -6,8 +6,9 @@
 
 #include "pplx/threadpool.h"
 
-/** One thread for client and one for server.
-    Just 1 would be no enough because client waits
+/** One thread for client and one for server because
+    they share the thread pool.
+    Just 1 would be not enough because client waits
     for response and server cannot pick a thread.
   */
 static bool initialized = []() {
