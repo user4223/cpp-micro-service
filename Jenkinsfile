@@ -36,7 +36,9 @@ pipeline {
     }
     stage('Docker.Run') {
       steps {
-        sh '''docker run --rm -d -p 127.0.0.1:6565:6565 front:latest
+        sh '''docker stop front > /dev/null 2>&1
+              docket container rm front > /dev/null 2>&1
+              docker run -d -p 127.0.0.1:6565:6565 front:latest
            '''
       }
     }

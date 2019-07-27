@@ -13,4 +13,4 @@ RUN cmake --build . --config Release
 FROM ubuntu:18.04 AS front 
 COPY --from=builder /src/build/bin/service.front /bin/
 EXPOSE 6565/tcp
-CMD ["/bin/service.front `cat /etc/hosts | grep $HOSTNAME | cut -f1`"]
+CMD ["/bin/service.front", "172.17.0.2"]
