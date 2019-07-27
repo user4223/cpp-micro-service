@@ -29,7 +29,7 @@ pipeline {
     }
     stage('Docker.Build') {
       steps {
-        sh '''docker build --tag service.example .
+        sh '''docker build --tag builder .
               docker images
            '''
       }
