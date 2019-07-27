@@ -76,7 +76,7 @@
     },
     {
       "label": "run",
-      "command": "bin/micro.service",
+      "command": "bin/service.front",
       "dependsOn": "ctest",
       "group": "build",
     },
