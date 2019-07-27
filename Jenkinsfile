@@ -36,7 +36,7 @@ pipeline {
     }
     stage('Docker.Run') {
       steps {
-        sh '''docker run --rm -d -p 6565:6565/tcp front:latest
+        sh '''docker run --rm --name front -d -p 6565:6565/tcp front:latest
               docker images
            '''
       }
