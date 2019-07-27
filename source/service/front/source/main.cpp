@@ -40,7 +40,7 @@ main(int argc, char const** argv)
                  request.reply(web::http::status_codes::OK, response);
                });
 
-  const auto uri = web::uri("http://localhost:6565/v1.0");
+  const auto uri = web::uri("http://*:6565/v1.0");
   auto router = std::make_unique<Common::CRouter>(uri, *handler);
   std::cout << "Listening on: " << uri.to_string() << std::endl;
 
