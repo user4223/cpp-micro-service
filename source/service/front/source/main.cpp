@@ -7,13 +7,11 @@
 #include <map>
 #include <memory>
 
-static const auto carEngineMap = []() { ///< TODO Move out to persistence service
-  std::map<std::string, std::string> m;
-  m.insert(std::make_pair("delorean", "flux capacitor"));
-  m.insert(std::make_pair("prius", "hybrid"));
-  m.insert(std::make_pair("mustang", "v8"));
-  return m;
-}();
+static const std::map<std::string, std::string> carEngineMap =
+    { ///< TODO Move out to persistence service
+        {"delorean", "flux capacitor"},
+        {"prius", "hybrid"},
+        {"mustang", "v8"}};
 
 int
 main(int argc, char const** argv)
