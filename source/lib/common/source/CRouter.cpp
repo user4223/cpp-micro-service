@@ -11,7 +11,7 @@ namespace Common
       , m_listener()
   {
     m_listener = web::http::experimental::listener::http_listener(web::uri(m_baseUri));
-    /** @todo Add handlers for all registered methods.
+    /** TODO Add handlers for all registered methods.
      */
     auto const methods = registry.getMethods();
     m_listener.support(web::http::methods::GET, [this, &registry](auto request) {
@@ -38,7 +38,7 @@ namespace Common
     }
     catch (std::exception const& e)
     {
-      ///< @todo Log it
+      // TODO Log it
     }
   }
 } // namespace Common
