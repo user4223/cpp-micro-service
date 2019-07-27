@@ -10,3 +10,5 @@ target_link_libraries(${PROJECT_NAME}
    micro.common 
    micro.utility
 )
+
+configure_file(etc/run.sh run.sh COPYONLY)

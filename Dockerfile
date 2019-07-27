@@ -12,5 +12,6 @@ RUN cmake --build . --config Release
 
 FROM ubuntu:18.04 AS front 
 COPY --from=builder /src/build/bin/service.front /bin/
+COPY --from=builder /src/build/service/front/run.sh /bin/service.front.sh
 EXPOSE 6565/tcp
-CMD ["/bin/service.front"]
+CMD ["/bin/service.front.sh"]

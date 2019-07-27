@@ -3,6 +3,7 @@
 [build_requires]
 cpprestsdk/2.10.13@bincrafters/stable
 gtest/1.8.1@bincrafters/stable
+boost_asio/1.69.0@bincrafters/stable
 
 [generators]
 cmake

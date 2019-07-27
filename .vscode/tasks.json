@@ -76,7 +76,7 @@
     },
     {
       "label": "run",
-      "command": "bin/micro.service",
+      "command": "bin/service.front localhost",
       "dependsOn": "ctest",
       "group": "build",
     },
@@ -85,12 +85,10 @@
       "command": "docker",
       "args": [
         "build",
-        //"--no-cache",
         "--tag",
-        "service.front",
+        "front",
         "."
       ],
-      //"dependsOn": "build",
       "group": "build",
       "options": {
         "cwd": "${workspaceRoot}"
@@ -104,7 +102,7 @@
         "--rm",
         "-p",
         "6565:6565",
-        "service.front:latest"
+        "front:latest"
       ],
       "dependsOn": "docker.build",
       "group": "build"

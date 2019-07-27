@@ -29,8 +29,18 @@ pipeline {
     }
     stage('Docker.Build') {
       steps {
-        sh '''docker build --tag service.example .
+        sh '''docker build --tag front .
               docker images
+           '''
+      }
+    }
+    stage('Docker.Run') {
+      steps {
+        sh '''set +e
+              docker stop front > /dev/null 2>&1
+              docker container rm front > /dev/null 2>&1
+              set -e
+              docker run --name front -d -p 127.0.0.1:6565:6565 front:latest
            '''
       }
     }

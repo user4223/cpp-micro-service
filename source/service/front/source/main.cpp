@@ -6,6 +6,7 @@
 
 #include <map>
 #include <memory>
+#include <string>
 
 static const std::map<std::string, std::string> carEngineMap =
     { ///< TODO Move out to persistence service
@@ -16,6 +17,7 @@ static const std::map<std::string, std::string> carEngineMap =
 int
 main(int argc, char const** argv)
 {
+
   crossplat::threadpool::initialize_with_threads(
       1); ///< Just avoid 40 threads created by http::listener by default
 
@@ -38,8 +40,10 @@ main(int argc, char const** argv)
                  request.reply(web::http::status_codes::OK, response);
                });
 
-  const auto uri = web::uri("http://localhost:6565/v1.0");
-  auto router = std::make_unique<Common::CRouter>(uri, *handler);
+  // TODO Validate host argument
+  const auto uri =
+      web::uri_builder("http://").set_host(argv[1]).set_port(std::to_string(6565)).set_path("v1.0");
+  auto router = std::make_unique<Common::CRouter>(uri.to_uri(), *handler);
   std::cout << "Listening on: " << uri.to_string() << std::endl;
 
   Utility::awaitInterrupt();
