@@ -40,7 +40,7 @@ pipeline {
               docker stop front > /dev/null 2>&1
               docker container rm front > /dev/null 2>&1
               set -e
-              docker run --name front -d -p 127.0.0.1:6565:6565 front:latest
+              docker run --name front -d -p `hostname -I | cut -f1 -d' '`:6565:6565 front:latest
            '''
       }
     }
