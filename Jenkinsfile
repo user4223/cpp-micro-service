@@ -29,7 +29,14 @@ pipeline {
     }
     stage('Docker.Build') {
       steps {
-        sh '''docker build --tag builder .
+        sh '''docker build --tag front .
+              docker images
+           '''
+      }
+    }
+    stage('Docker.Run') {
+      steps {
+        sh '''docker run --rm -d -p 6565:6565/tcp front:latest
               docker images
            '''
       }
