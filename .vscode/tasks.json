@@ -76,7 +76,7 @@
     },
     {
       "label": "run",
-      "command": "bin/service.front",
+      "command": "bin/service.front localhost",
       "dependsOn": "ctest",
       "group": "build",
     },
