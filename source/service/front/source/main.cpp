@@ -45,8 +45,8 @@ main(int argc, char const** argv)
                  .set_host(vm["hostname"].as<std::string>())
                  .set_port(std::to_string(6565))
                  .set_path("v1.0");
-  auto listener =
-      web::http::experimental::listener::http_listener(web::uri(uri.set_path("/car/.*").to_uri()));
+  auto listener = web::http::experimental::listener::http_listener(
+      web::uri(uri.append_path("/car/.*").to_uri()));
   listener.support(web::http::methods::GET, [](auto request) {
     const auto path = web::uri::decode(request.relative_uri().path());
     std::cout << "Got request on: " << path << std::endl;
