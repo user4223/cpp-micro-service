@@ -2,8 +2,6 @@
 #include "../include/TestClientServer.h"
 #include "../include/SocketUtility.h"
 
-#include "lib/common/include/CRouter.h"
-
 #include "pplx/threadpool.h"
 
 /** One thread for client and one for server because
@@ -18,12 +16,11 @@ static bool initialized = []() {
 
 namespace TestSupport
 {
-  TestClientServer::TestClientServer(std::unique_ptr<API::IRouteRegistry> registry)
+  TestClientServer::TestClientServer()
       : m_baseUri(web::uri_builder("http://localhost")
                       .set_port(TestSupport::getFreeTCPPort("127.0.0.1"))
                       .to_uri())
-      , m_registry(std::move(registry))
-      , m_router(std::make_unique<Common::CRouter>(m_baseUri, *m_registry))
+      , m_listener()
       , m_client(m_baseUri)
   {}
 
