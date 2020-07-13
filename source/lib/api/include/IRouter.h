@@ -5,6 +5,6 @@ namespace API
 {
   struct IRouter
   {
-    virtual ~IRouter() = default;
+    virtual ~IRouter();
   };
 } // namespace API

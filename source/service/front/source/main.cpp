@@ -37,7 +37,7 @@ main(int argc, char const** argv)
 
                  auto response = web::json::value::object();
                  response["engine"] = web::json::value(engine->second);
-                 request.reply(web::http::status_codes::OK, response);
+                 return request.reply(web::http::status_codes::OK, response);
                });
 
   // TODO Validate host argument

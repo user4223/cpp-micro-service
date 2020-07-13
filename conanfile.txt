@@ -1,9 +1,9 @@
 [requires]
 
 [build_requires]
-cpprestsdk/2.10.13@bincrafters/stable
+cpprestsdk/2.10.16
 gtest/1.8.1@bincrafters/stable
-boost_asio/1.69.0@bincrafters/stable
+boost/1.72.0
 
 [generators]
 cmake
