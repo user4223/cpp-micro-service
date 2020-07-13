@@ -2,6 +2,18 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "service.front (lldb)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceRoot}/build/bin/service.front",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
+    },
+    {
       "name": "micro.test",
       "type": "cppdbg",
       "request": "launch",
@@ -10,7 +22,7 @@
       "stopAtEntry": false,
       "cwd": "${workspaceRoot}",
       "externalConsole": false,
-      "MIMode": "gdb",
+      "MIMode": "lldb",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

@@ -54,5 +54,6 @@
     "string_view": "cpp",
     "new": "cpp",
     "cinttypes": "cpp",
-  }
+  },
+  "cmake.configureOnOpen": false
 }
