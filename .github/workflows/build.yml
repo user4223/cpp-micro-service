@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout
     - uses: actions/checkout@v2
       
     - name: Prepare tooling
@@ -48,9 +49,9 @@ jobs:
           --track-origins=yes \
           bin/micro.test
     
-    - name: Archive service artifact
+    - name: Archive artifacts
       uses: actions/upload-artifact@v2
       with:
         name: service.front
         path: |
-          build/service.front
+          build/bin/service.front
