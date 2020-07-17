@@ -1,4 +1,5 @@
 ![build](https://github.com/karlheinzkurt/cpp-micro-service/workflows/build/badge.svg)
+![docker](https://github.com/karlheinzkurt/cpp-micro-service/workflows/docker/badge.svg)
 
 To be written...
 
