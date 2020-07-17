@@ -1,6 +1,8 @@
+![build](https://github.com/karlheinzkurt/cpp-micro-service/workflows/build/badge.svg)
 
 To be written...
 
+### Somce background thinking just to keep it somewhere
 **Static linking** is important to have no common dependencies 
 prohibiting partial service updates and to avoid varying runtime 
 dependencies inside docker containers.
