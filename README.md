@@ -2,7 +2,7 @@
 
 To be written...
 
-### Somce background thinking just to keep it somewhere
+### Some background thinking just to keep it somewhere
 **Static linking** is important to have no common dependencies 
 prohibiting partial service updates and to avoid varying runtime 
 dependencies inside docker containers.
